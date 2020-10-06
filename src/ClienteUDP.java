@@ -5,7 +5,7 @@ import java.io.*;
 
 public class ClienteUDP {
 	
-	// args proporciona el mensaje y el nombre del servidor
+	// args proporciona el mensaje a enviar
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -13,7 +13,7 @@ public class ClienteUDP {
 			DatagramSocket unSocket = new DatagramSocket(6789);
 			byte[] msj = args[0].getBytes();
 			//InetAddress unHost = InetAddress.getByName("juancarlosamor.es");
-			InetSocketAddress unHost = new InetSocketAddress("192.168.1.139", 6789);
+			InetSocketAddress unHost = new InetSocketAddress("192.168.1.133", 6789);
 			System.out.println(unHost.getHostString() + unHost.toString());
 			//int puertoServidor = 6789;
 			DatagramPacket peticion = new DatagramPacket(msj, args[0].length(), unHost);

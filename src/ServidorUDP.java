@@ -8,11 +8,12 @@ public class ServidorUDP {
 		try {
 			DatagramSocket unSocket = new DatagramSocket(6879);
 			byte[] bufer = new byte[1000];
+			//byte[] bufer = ("Hola Sobremesa").getBytes();
 			while (true) {
 				DatagramPacket peticion = new DatagramPacket(bufer, bufer.length);
 				unSocket.receive(peticion);
-				
-				DatagramPacket respuesta = new DatagramPacket(peticion.getData(), peticion.getLength(), peticion.getAddress(), peticion.getPort());
+				System.out.println("Peticion: " + new String(peticion.getData()));
+				DatagramPacket respuesta = new DatagramPacket(("Hola Sobremesa").getBytes(), peticion.getLength(), peticion.getAddress(), peticion.getPort());
 				unSocket.send(respuesta);
 				unSocket.close();
 			}
